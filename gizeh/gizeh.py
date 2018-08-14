@@ -46,7 +46,7 @@ class Surface:
             image = np.array(3 * [image])
         elif d == 3:
             image = image[:, :, [2, 1, 0]]
-            image = np.dstack([image, 255 * np.ones((h, w))])
+            image = np.dstack([image, 255 * np.ones((h, w), dtype=image.dtype)])
         sf = Surface(w, h)
         arr = np.frombuffer(sf._cairo_surface.get_data(), np.uint8)
         arr += image.flatten()
